@@ -9,14 +9,21 @@ import { Router } from '@angular/router';
   imports: [MatToolbarModule, MatButtonModule],
   selector: 'app-home',
   template: `
-    <mat-toolbar color="accent">
-      <span>Home</span>
-
+    <mat-toolbar style="background-color: #3e2c23; color: #fff;">
+      <span>Bienvenido a Pilgram</span>
       <button mat-flat-button (click)="logOut()">Log out</button>
     </mat-toolbar>
+    <div class="page-container">
+      <!-- Aquí va el contenido de la página -->
+    </div>
   `,
   styles: [
     `
+      .page-container {
+        background-color: #f4ede8; /* Fondo crema */
+        min-height: 100vh;
+        color: #4c2215; /* Color de texto */
+      }
       mat-toolbar {
         display: flex;
         justify-content: space-between;
@@ -26,7 +33,6 @@ import { Router } from '@angular/router';
 })
 export default class HomeComponent {
   private _router = inject(Router);
-
   private authservice = inject(AuthService);
 
   async logOut(): Promise<void> {
